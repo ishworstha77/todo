@@ -12,14 +12,14 @@ const App = () => {
   }, [task]);
 
   React.useEffect(() => {
-    if (edit.index > -1) {
+    if (edit.index !== null) {
       const edited = window.prompt("Edit your data", edit.prev);
       const _temp = [...task];
       _temp[edit.index] = edited;
       settask(_temp);
-      setEdit({ inde: null, prev: "" });
+      setEdit({ index: null, prev: "" });
     }
-  }, [edit.index]);
+  }, [edit.index, edit.prev, task]);
   return (
     <div>
       <input
